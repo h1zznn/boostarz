@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Input Transaksi</title>
+  <style>
+    .content {
+      width: 50%;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #000;
+    }
+    .form-container {
+      text-align: center;
+    }
+    .receipt {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #000;
+      text-align: left;
+    }
+  </style>
+</head>
+<body bgcolor="#F0F8FF">
+
+  <b><a href="right.html" target="right">HOME</a></b> |
+  <b><a href="produk.html" target="right">PRODUK</a></b> |
+  <b><a href="struk.html" target="right">STRUK JADI</a></b> |
+  <b><a href="about.html" target="right">TENTANG</a></b>
+
+  <div class="content">
+    <h2><center>Input Transaksi</center></h2>
+    <div class="form-container" teks align="center">
+      <form id="transactionForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required> <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required> <br>
+
+        <label for="Phone_number">Phone number:</label>
+        <input type="text" id="Phone_number" name="Phone_number" required><br>
+
+        <label for="Address">Address:</label>
+        <input type="text" id="Address" name="Address" required><br>
+
+        <label for="barang">Barang:</label>
+        <select id="barang" name="barang" required>
+          <option value="Album 1">Album 1</option>
+          <option value="Album 2">Album 2</option>
+          <option value="Album 3">Album 3</option>
+          <option value="Album 4">Album 4</option> 
+        </select> <br>
+
+        <label for="jumlah">Jumlah:</label>
+        <input type="number" id="jumlah" name="jumlah" required> <br>
+
+        <button type="button" onclick="generateReceipt()">Beli</button>
+      </form>
+    </div>
+    <div class="receipt" id="receipt">
+      <h3>Struk Pembayaran</h3>
+      <p><b>Nama:</b> <span id="receiptNama"></span></p>
+      <p><b>Email:</b> <span id="receiptEmail"></span></p>
+      <p><b>Phone number:</b> <span id="receiptPhone"></span></p>
+      <p><b>Address:</b> <span id="receiptAddress"></span></p>
+      <p><b>Barang:</b> <span id="receiptBarang"></span></p>
+      <p><b>Jumlah:</b> <span id="receiptJumlah"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function generateReceipt() {
+      // Ambil nilai dari form
+      var nama = document.getElementById('nama').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('Phone_number').value;
+      var address = document.getElementById('Address').value;
+      var barang = document.getElementById('barang').value;
+      var jumlah = document.getElementById('jumlah').value;
+
+      // Tampilkan nilai pada struk
+      document.getElementById('receiptNama').innerText = nama;
+      document.getElementById('receiptEmail').innerText = email;
+      document.getElementById('receiptPhone').innerText = phone;
+      document.getElementById('receiptAddress').innerText = address;
+      document.getElementById('receiptBarang').innerText = barang;
+      document.getElementById('receiptJumlah').innerText = jumlah;
+
+      // Tampilkan struk
+      document.getElementById('receipt').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
